@@ -144,12 +144,19 @@ const recipieWebSite =
         a.innerHTML = 'להרשמה!';
         poping.append(a);
    
+        const a = document.createElement('a');
+        a.classList.add('link');
+        a.href = '/login.html';
+        a.innerHTML = 'לכניסה!';
+        poping.append(a);
 
         body.append(container);
 
         button.onclick = () => {
             container.remove();
         }
+
+
 
         },3000);
 
