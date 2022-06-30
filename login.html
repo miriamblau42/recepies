@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
+     <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2></h2>
+    <main class="form-signin" >
+        <form id="loginform">
+          <h1 class="h3 mb-3 fw-normal">הכנס את פרטיך</h1>
+      
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name"   name="userName" required>
+            <label for="floatingInput">שם משתמש</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required name="password" >
+            <label for="floatingPassword">סיסמא</label>
+          </div>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" id="buttonSignin" type="submit">לכניסה</button>
+          <p class="mt-5 mb-3 text-muted">since 2021 מתכונים בע"מ</p>
+        </form>
+      </main>
+    
+    <!-- <div class="container">
+        <form class="row g-3 needs-validation was-validated" novalidate>
+            <div class="col-md-3 col-sm-6">
+                <label for="userName" class="form-label">הכנס את שם המשתמש שלך</label>
+                <input type="text" class="form-control" id="userName" required name="userName">
+                <div class="valid-feedback">
+                   שלום
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <label for="password" class="form-label">הכנס את סיסמתך</label>
+                <input type="password" class="form-control" id="password" value="" required name="password">
+                <div class="valid-feedback">
+ 
+                   
+            </div>
+           
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
+    </div> -->
+<!-- </div> -->
+<a href=""></a>
+<!-- <form>
+        <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2017–2021</p>
+      </form> -->
+    <script src="jquery-3.2.1.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+    <script>
+    const form = document.querySelector('#loginform');  
+       const h2 =document.querySelector('h2');
+       const a =document.querySelector('a');
+
+       form.onsubmit = (e) => {
+           e.preventDefault();
+        //    בדיקה האם הטופס תקין
+            if (form.checkValidity()) 
+            {
+                const formData = new FormData(form);
+                const data = Object.fromEntries([...formData.entries()]);
+                console.log((data));
+                
+                if(data.password == localStorage.getItem(data.userName))
+                {
+                sessionStorage.setItem("currentUser" , JSON.stringify(data)); 
+                h2.innerHTML = `ברוך הבא ${data.userName}`;
+                a.innerHTML = ' -להכנסת מתכון';
+                a.href = '/newRecipe.html';
+                }
+                else 
+                {
+                h2.innerHTML = 'אחד מהפרטים שהקשת שגויים';
+                a.innerHTML = 'האם ברצונך להרשם?';
+                a.href='/signup.html';
+                } 
+            }
+       }
+    </script>
+</body>
+</html>

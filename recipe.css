@@ -1,0 +1,18 @@
+p{
+    width: 30%;
+    margin: auto;
+}
+body{
+    direction: rtl;
+    text-align: center;
+    background-image: url(images/רקע4.jpg);
+    background-size: cover;
+}
+#ingridients{
+    display: block;
+    direction: unset;
+    margin-right: 40%;
+}
+.title{
+    color: rgb(85, 22, 122);
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css">
+</head>
+<body>
+        <header class="p-3 bg-dark text-white">
+                <div class="container">
+                  <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                      </svg>
+                      <span id="profile">!</span>
+                 
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/contact.html" class="nav-link px-2 text-white">צור קשר</a></li>
+                    <li><a href="/about.html" class="nav-link px-2 text-white">קצת עלינו...</a></li>
+                    <li><a href="/myRecipies.html" class="nav-link px-2 text-white">המתכונים שלי</a></li>
+                    <li><a href="/preety.html" class="nav-link px-2 text-white">היופי שבעוגה</a></li>
+                    <li><a href="/index.html" class="nav-link px-2 text-secondary">דף הבית</a></li>
+                    </ul>
+                
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                      <input type="search" class="form-control form-control-dark" id="searchText" placeholder="Search..." aria-label="Search">
+                    </form>
+                    
+            
+                    <div class="text-end">
+                      <button type="button" class="btn btn-outline-light me-2" id="login"> לכניסה</button>
+                      <button type="button" class="btn btn-warning" id="signup">להרשמה למטבח!!</button>
+                    </div>
+                    <br>
+                    <h1>המטבח הטעים!!🎂</h1>
+                  </div>
+                </div>
+              </header>
+    <h1>הוסף את המתכון הטעים שלך!!!!!!!!!</h1>
+    <form >
+        <label for="name">  שם המתכון של סבתא:</label> <input type="text" name="name" required>  <br>
+        <label for="preparationTime">  זמן ההכנה המשוער😆:</label> <input type="text" name="preparationTime" required>  <br>
+        <label for="level">  רמת קושי: </label> <input type="text" name="level" required>  <br>
+        <label for="ingredients">  חומרים נדרשים:</label> <textarea name="ingredients" id="" cols="30" rows="10" required></textarea> <br>
+        <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" required></textarea>
+                <label for="floatingTextarea">אופן ההכנה</label>
+              </div><br>
+        <button type="submit">שמירת המתכון המזין</button>
+    </form>
+    <script src="jquery-3.2.1.js"></script>
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+   
+    <script>
+       const form = document.querySelector('form');
+       form.onsubmit = (e) => {
+           e.preventDefault();
+        //    בדיקה האם הטופס תקין
+            if (form.checkValidity()) {
+                const formData = new FormData(form);
+                const data = Object.fromEntries([...formData.entries()]);
+                localStorage.setItem(`myRecipe_${JSON.parse(sessionStorage.getItem("currentUser")).userName}`, JSON.stringify(data));
+                location.href = '/';
+            }
+       }
+
+const profile = document.querySelector('#profile');
+const currentUserJson = sessionStorage.getItem('currentUser');
+//משתמש ברירת מחדל כאשר אין משתמש נוכחי רשום במערכת
+const defaultUser = 
+{
+userName : "user",
+password : ""
+}
+
+// המרה של המחרוזת לאובייקט
+const currentUser = JSON.parse(currentUserJson) || defaultUser;
+
+profile.innerHTML = currentUser.userName || " ";
+
+    </script>
+ 
+</body>
+</html>
+

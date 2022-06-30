@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/style.css">
+
+    
+</head>
+<body>
+        <div class="container">
+                <form class="row g-3 needs-validation was-validated" novalidate>
+                    <div class="col-md-3 col-sm-6">
+                        <label for="userName" class="form-label">הכנס את שם המשתמש שלך</label>
+                        <input type="text" class="form-control" id="userName" required name="userName">
+                        <div class="valid-feedback">
+                           שלום
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <label for="password" class="form-label">הכנס את סיסמתך</label>
+                        <input type="password" class="form-control" id="password" value="" required name="password">
+                        <div class="valid-feedback">
+
+                    </div>
+
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="jquery-3.2.1.js"></script>
+        <script src="bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+        <script>
+        const form = document.querySelector('form');  
+           const h2 =document.querySelector('h2');
+           const a =document.querySelector('a');
+           form.onsubmit = (e) => {
+               e.preventDefault();
+               const formData = new FormData(form);
+               const data = Object.fromEntries([...formData.entries()]);
+               if (form.checkValidity()) 
+            {
+                localStorage.setItem(data.userName,data.password);
+                sessionStorage.setItem("currentUser",JSON.stringify(data));
+                location.href = '/';
+            } 
+        }
+        </script>
+</body>
+</html>
+

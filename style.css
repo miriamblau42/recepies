@@ -1,0 +1,129 @@
+.recipeContainer
+{
+height: 10%;
+width: 33%;
+/* background-color: rgb(243, 173, 21);
+border: black, solid, 1px;
+color: rgb(12, 10, 19); */
+justify-content: center;
+display: flex;
+justify-content: center;
+-webkit-box-align: stretch;
+align-items: stretch;
+flex-wrap: wrap;
+margin-top: 30px;
+margin-left: -25px;
+padding: 20px;
+}
+#allRecipies
+{
+    height: 80%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: calc(100% + 25px);
+    margin-top: 30px;
+    margin-left: -25px;
+    
+    /* display: flex; */
+}
+.ingridient
+{
+    color: #ffc107;
+    
+}
+#newUser
+{
+    display: none;
+}
+#newUser :target
+{
+    display: initial;
+}
+h1
+{
+    color: #ffc107;
+    text-align: center;
+    /* margin: 400px; */
+}
+
+#profile
+{
+    color: antiquewhite;
+}
+body{
+    text-align: center;
+    background-image: url(images/מטבח.jpg);
+    background-size: cover;
+}
+.popingContainer{
+    position: absolute;
+    width: 800px;
+    height: 300px;
+    z-index: 3;
+    border: #d6d6a2 solid 8px;
+    border-top: 0;
+    display: flex;
+    background-color: purple;
+    right: 20%;
+}
+.opacity{
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 259px);
+    opacity: 0.7;
+    top: 0;
+    background-color: #85868b;
+    
+}
+.poping{
+    z-index: 10;
+    background-color: #ffffff;
+    border: #ffc107 solid 2px;
+    background-image: url(images/רקע5.jpg);
+    opacity: 1;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 40vh;
+    right: 40vw;
+    height: 17%;
+}
+
+.poping h3{
+    color: #ffc107;
+}
+.buttonPop{
+    align-self: end;
+    margin-right: 7px;
+    font-size: 24px;
+    background-color: transparent;
+    border: transparent;
+    color: #ffc107;
+}
+.link{
+    color: #ffc107;
+    text-decoration: none;
+    
+}
+main{
+    margin: auto;
+    margin-top: 20%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+#buttonSignin{
+    text-align: center;
+    background-image: url(images/מטבח.jpg);
+    background-size: cover;
+}
+
+
+
